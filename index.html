@@ -1,0 +1,1644 @@
+<!doctype html>
+<!-- Generated from src/ by content-preview-build/inline.py. Edit src/, then rerun. -->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0B0B0C">
+<title>ELK · Planner preview · 24–30 Oct 2026</title>
+<meta name="description" content="Internal draft preview of ELK planner posts for 24–30 October 2026. Not posted.">
+<link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* ELK · Planner preview
+   TYPE SCALE   12 · 13 · 15 · 17 · 22 · 30 · 40 px, display clamp(44px, 12vw, 96px). Two families: Instrument Serif (display) + Inter Tight (UI/body); ELK Indic subsets only for ఆరా / ಆರಾ.
+   SPACE SCALE  4 · 8 · 12 · 16 · 24 · 32 · 48 px (--s1…--s7).
+   MOTION SPEC  every transition 150–300ms; all off under prefers-reduced-motion.
+   M1 View enter     trigger: in-app route/tab change (not first paint) · opacity 0→1 + translateY(8px)→0 · 240ms · cubic-bezier(.2,.8,.2,1)
+   M2 Dock indicator trigger: active client/date changes · transform translateX(prev)→translateX(cur) · 250ms · cubic-bezier(.2,.8,.2,1)
+   M3 Colour states  trigger: hover / press / aria-current / aria-pressed · background-color, color, border-color · 150ms · ease-out
+   M4 Carousel dot   trigger: active slide changes · width 6→16px, opacity .4→1 · 200ms · ease-out
+   M5 Score ring     trigger: route render · stroke-dashoffset empty→score · 300ms · cubic-bezier(.2,.8,.2,1)
+   M6 Tile zoom      trigger: hover / focus-visible, fine pointers only · img scale 1→1.03 · 300ms · cubic-bezier(.2,.8,.2,1)
+   M7 Arrow fade     trigger: hover over media, fine pointers only · opacity 0→1 · 150ms · ease-out
+   M8 Carousel step  trigger: arrow click / arrow key · native smooth scrollLeft; instant under reduced motion
+   Instant (no motion): caption more/less, <details> open, Aara A/B switch, grid crop toggle. */
+@font-face{font-family:"Instrument Serif";src:url(assets/fonts/instrument-serif.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(assets/fonts/instrument-serif-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Inter Tight";src:url(assets/fonts/inter-tight.woff2) format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+/* metric-matched fallbacks: no layout jump when the webfonts swap in */
+@font-face{font-family:"Inter Tight Fallback";src:local("Arial"),local("Helvetica"),local("Liberation Sans"),local("Roboto");size-adjust:96.86%;ascent-override:100.02%;descent-override:24.9%;line-gap-override:0%}
+@font-face{font-family:"Instrument Serif Fallback";src:local("Times New Roman"),local("Times"),local("Liberation Serif");size-adjust:83.67%;ascent-override:118.33%;descent-override:37.05%;line-gap-override:0%}
+@font-face{font-family:"ELK Indic";src:url(assets/fonts/noto-telugu-subset.woff2) format("woff2");unicode-range:U+0C00-0C7F;font-display:swap}
+@font-face{font-family:"ELK Indic";src:url(assets/fonts/noto-kannada-subset.woff2) format("woff2");unicode-range:U+0C80-0CFF;font-display:swap}
+:root{
+  --ink:#0B0B0C; --ink-2:#141416; --ink-3:#1C1C1F; --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.17);
+  --paper:#F4F1EA; --muted:#AEAAA1; --dim:#8F8B83; --gold:#E9D8A6; --amber:#F2B45A; --tag:#A8C8FF; --ok:#9BD5A3; --bad:#FF9B8A;
+  --serif:"Instrument Serif","Instrument Serif Fallback","ELK Indic",Georgia,serif;
+  --sans:"Inter Tight","Inter Tight Fallback","ELK Indic",system-ui,sans-serif;
+  --t12:12px; --t13:13px; --t15:15px; --t17:17px; --t22:22px; --t30:30px; --t40:40px;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+  --ease:cubic-bezier(.2,.8,.2,1); --fast:150ms; --mid:240ms;
+  --pad:var(--s4); --r:20px; --r-sm:12px;
+  --dock-h:64px; --safe-b:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px;scroll-padding-bottom:calc(var(--dock-h) + var(--safe-b) + 16px)}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 var(--t15)/1.5 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  padding-bottom:calc(var(--dock-h) + var(--safe-b) + var(--s4));-webkit-tap-highlight-color:transparent}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:8px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--paper);color:var(--ink);padding:12px 16px;border-radius:8px;z-index:60}
+.skip:focus{left:8px}
+.noscript{padding:var(--s6) var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:var(--s3);
+  padding:var(--s2) max(var(--pad),env(safe-area-inset-right)) var(--s2) max(var(--pad),env(safe-area-inset-left));padding-top:max(var(--s2),env(safe-area-inset-top));
+  background:rgba(11,11,12,.86);-webkit-backdrop-filter:saturate(1.4) blur(16px);backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:var(--s2);text-decoration:none;min-height:44px;min-width:0}
+.brand-mark{font:400 var(--t22)/1 var(--serif);letter-spacing:.02em;color:var(--gold)}
+.brand-sub{font-size:var(--t12);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.seg{display:flex;gap:2px;padding:2px;border:1px solid var(--line-2);border-radius:999px}
+.seg a{min-height:44px;padding:0 var(--s3);border-radius:999px;font-size:var(--t13);font-weight:600;text-decoration:none;color:var(--muted);display:flex;align-items:center}
+.seg a:hover{color:var(--paper)}
+.seg a[aria-current="page"]{background:var(--paper);color:var(--ink)}
+@media (max-width:420px){.brand-sub{display:none}.seg a{padding:0 10px}}
+
+/* ---------- layout ---------- */
+main{max-width:1240px;margin:0 auto;padding:0 max(var(--pad),env(safe-area-inset-right)) var(--s7) max(var(--pad),env(safe-area-inset-left));outline:none}
+.view{animation:enter var(--mid) var(--ease) both}
+.boot .view{animation:none}
+@keyframes enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:var(--t12);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+.display{font:400 clamp(44px,12vw,96px)/.95 var(--serif);letter-spacing:-.02em;margin:var(--s2) 0 0}
+.display em,.h1 em,.h2 em{font-style:italic;color:var(--gold)}
+.h1{font:400 clamp(var(--t30),9vw,56px)/1 var(--serif);letter-spacing:-.01em;margin:var(--s1) 0 0}
+.h2{font:400 var(--t30)/1.05 var(--serif);margin:0}
+.h3{font:600 var(--t12)/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 var(--s3)}
+.lede{color:var(--muted);max-width:56ch;margin:var(--s3) 0 0}
+.muted{color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s4)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:var(--t12);letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:var(--s1) var(--s3);border-radius:999px;border:1px solid var(--line-2)}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--amber)}
+.badge.ok .dot{background:var(--ok)}
+
+/* one card pattern for every surface */
+.card{display:block;border:1px solid var(--line);border-radius:var(--r);background:var(--ink-2);padding:var(--s4);text-decoration:none;min-width:0}
+a.card:hover{border-color:var(--line-2)}
+.section{padding:var(--s6) 0 0}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s4);flex-wrap:wrap}
+.section-head p{margin:0;color:var(--muted);font-size:var(--t13)}
+.page-head{padding:var(--s5) 0 var(--s4);display:flex;align-items:center;gap:var(--s4)}
+.page-head > div{min-width:0;flex:1}
+.page-head p.sub{margin:var(--s1) 0 0;color:var(--muted);font-size:var(--t13)}
+
+/* ---------- hero ---------- */
+.hero{padding:var(--s6) 0 var(--s5);border-bottom:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:var(--s5);border-top:1px solid var(--line)}
+.stat{padding:var(--s3) 0 0}
+.stat b{display:block;font:400 var(--t30)/1 var(--serif)}
+.stat span{font-size:var(--t12);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+
+/* ---------- avatars (real logos) ---------- */
+.av{flex:none;width:32px;height:32px;border-radius:50%;overflow:hidden;background:#fff;display:block}
+.av img{width:100%;height:100%;object-fit:cover}
+.av.lg{width:56px;height:56px}
+.av.ring-ig{box-shadow:0 0 0 2px #000,0 0 0 3.5px #EE2A7B}
+
+/* ---------- client cards ---------- */
+.cards{display:grid;gap:var(--s3)}
+.card-top{display:flex;align-items:center;gap:var(--s3)}
+.card-top > div{min-width:0;flex:1}
+.card-top > .ring,.page-head > .ring{flex:none}
+.card-name{font:400 var(--t22)/1.1 var(--serif);margin:0}
+.card-tag{font-size:var(--t13);color:var(--muted);margin:2px 0 0}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:var(--s3);border-radius:var(--r-sm);overflow:hidden}
+.mini .t{aspect-ratio:3/4;background:var(--ink-3);overflow:hidden}
+.mini img{width:100%;height:100%;object-fit:cover}
+.card-foot{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);margin-top:var(--s3);font-size:var(--t13);color:var(--muted)}
+.card-foot .go{color:var(--paper);font-weight:600}
+.flag{color:var(--amber)}
+
+/* score ring */
+.ring{position:relative;width:44px;height:44px;flex:none}
+.ring svg{width:44px;height:44px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:3}
+.ring .bg{stroke:rgba(255,255,255,.12)}
+.ring .fg{stroke:var(--accent,var(--gold));stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:var(--off);animation:ring 300ms var(--ease) both}
+@keyframes ring{from{stroke-dashoffset:113.1}to{stroke-dashoffset:var(--off)}}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:var(--t13);font-weight:700}
+
+/* ---------- week ---------- */
+.week{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:var(--s2)}
+.day{display:flex;flex-direction:column;gap:var(--s2);min-height:150px;padding:var(--s3)}
+.day.empty{background:transparent}
+.day-n{font:400 var(--t30)/1 var(--serif)}
+.day-w{font-size:var(--t12);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.day-posts{display:grid;grid-template-columns:1fr 1fr;gap:var(--s1);margin-top:auto}
+.day-posts .t{aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:var(--ink-3)}
+.day-posts img{width:100%;height:100%;object-fit:cover}
+.day .none{margin-top:auto;font-size:var(--t12);color:var(--dim)}
+
+/* ---------- bottom dock (thumb-reachable switcher) ---------- */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:var(--s2) max(var(--s2),env(safe-area-inset-right)) calc(var(--s2) + var(--safe-b)) max(var(--s2),env(safe-area-inset-left));
+  background:rgba(11,11,12,.92);-webkit-backdrop-filter:saturate(1.4) blur(18px);backdrop-filter:saturate(1.4) blur(18px);border-top:1px solid var(--line)}
+.dock-in{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;max-width:560px;margin:0 auto;padding:2px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.dock-ind{position:absolute;top:2px;bottom:2px;left:2px;width:calc((100% - 4px) / var(--n));border-radius:13px;background:var(--paper);transform:translateX(calc(100% * var(--i)));transition:transform 250ms var(--ease)}
+.dock a{position:relative;z-index:1;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;font-size:var(--t12);font-weight:600;color:var(--muted);border-radius:13px;min-width:0}
+.dock a .av{width:24px;height:24px}
+.dock a b{font:400 var(--t17)/1 var(--serif);color:var(--paper)}
+.dock a[aria-current="true"],.dock a[aria-current="true"] b{color:var(--ink)}
+.dock a.empty b{color:var(--muted)}
+.dock a span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+
+/* ---------- client view ---------- */
+.tabs{display:flex;gap:2px;padding:2px;border:1px solid var(--line-2);border-radius:14px;margin-bottom:var(--s5);max-width:420px}
+.tabs a{flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;text-decoration:none;font-size:var(--t13);font-weight:600;color:var(--muted)}
+.tabs a[aria-current="page"]{background:var(--paper);color:var(--ink)}
+.client-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+.profile-col,.feed,.post-row > *{min-width:0}
+.feed{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s6)}
+.post-row{display:grid;gap:var(--s3);scroll-margin-top:72px}
+.post-meta{display:flex;align-items:baseline;gap:var(--s2);flex-wrap:wrap}
+.pm-h{margin:0;font:400 var(--t22)/1.1 var(--serif)}
+.pm-h a{text-decoration:none;display:inline-flex;align-items:center;gap:var(--s2);min-height:44px}
+.post-meta .what{flex-basis:100%;font-size:var(--t12);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- IG profile mock ---------- */
+.phone{border-radius:28px;background:#000;border:1px solid var(--line-2);overflow:hidden}
+.ig-status{display:flex;justify-content:space-between;align-items:center;padding:10px 22px 4px;font-size:var(--t13);font-weight:600}
+.ig-status .island{width:90px;height:24px;border-radius:20px;background:#111;border:1px solid #222}
+.ig-bar{display:flex;align-items:center;gap:var(--s2);padding:var(--s2) 14px;font-weight:700;font-size:var(--t17)}
+.ig-bar .h{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ig-bar .nohandle{font-weight:500;font-size:var(--t13);color:var(--amber)}
+.ig-bar svg{width:22px;height:22px;margin-left:auto;flex:none}
+.ig-prof{display:flex;align-items:center;gap:var(--s4);padding:var(--s1) 14px var(--s3)}
+.bigav{flex:none;width:80px;height:80px;border-radius:50%;padding:3px;background:conic-gradient(from 200deg,#F9CE34,#EE2A7B,#6228D7,#F9CE34)}
+.bigav img{width:100%;height:100%;border-radius:50%;border:3px solid #000;object-fit:cover;background:#fff}
+.ig-nums{display:flex;gap:var(--s4);text-align:center;font-size:var(--t12);color:#d8d8d8}
+.ig-nums b{display:block;font-size:var(--t15);color:#fff}
+.ig-bio{padding:0 14px var(--s3);font-size:var(--t13);line-height:1.4;white-space:pre-line;overflow-wrap:anywhere}
+.ig-bio b{display:block;white-space:normal}
+.ig-bio .cat{display:block;color:#a8a8a8;white-space:normal}
+.ig-bio .lnk{display:block;color:#E0F1FF;font-weight:600;white-space:normal}
+.ig-cta{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;padding:0 14px var(--s3)}
+.ig-cta span{background:#262626;border-radius:8px;padding:7px 4px;font-size:var(--t12);font-weight:600;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ig-hl{display:flex;gap:var(--s3);overflow-x:auto;padding:0 14px var(--s3);scrollbar-width:none}
+.ig-hl::-webkit-scrollbar{display:none}
+.ig-hl div{flex:none;width:60px;text-align:center;font-size:var(--t12);color:#ddd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ig-hl i{display:block;width:56px;height:56px;margin:0 auto var(--s1);border-radius:50%;border:1px solid #3a3a3a;background:#121212;box-shadow:inset 0 0 0 3px #000}
+.ig-btns{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 14px var(--s3)}
+.ig-btns button{min-height:44px;background:#262626;border:0;border-radius:8px;font-size:var(--t13);font-weight:600}
+.ig-btns button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+.ig-tabs{display:flex;border-top:1px solid #262626}
+.ig-tabs span{flex:1;display:grid;place-items:center;padding:10px 0;color:#8e8e8e}
+.ig-tabs span:first-child{color:#fff;box-shadow:inset 0 -1px 0 #fff}
+.ig-tabs svg{width:22px;height:22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.tile{position:relative;aspect-ratio:3/4;overflow:hidden;background:#111;border:0;padding:0;display:block;width:100%;min-height:44px}
+.grid.full .tile{aspect-ratio:4/5}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 300ms var(--ease)}
+.tile.ph{background:#0d0d0d}
+.tile .ic{position:absolute;top:6px;right:6px;width:18px;height:18px;color:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+.tile .dt{position:absolute;left:6px;bottom:6px;font-size:var(--t12);font-weight:700;padding:2px 6px;border-radius:6px;background:rgba(0,0,0,.7)}
+@media (hover:hover) and (pointer:fine){.tile:hover img,.tile:focus-visible img{transform:scale(1.03)}}
+.grid-note{font-size:var(--t12);color:var(--muted);padding:var(--s3) 14px var(--s4);margin:0}
+.mock-note{font-size:var(--t12);color:var(--muted);margin:var(--s2) 0 0}
+
+/* ---------- IG feed post mock ---------- */
+.ig-post{background:#000;border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;max-width:470px;width:100%}
+.ig-head{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.ig-head > div{min-width:0}
+.ig-head .nm{font-size:var(--t13);font-weight:700;line-height:1.2}
+.ig-head .sub{font-size:var(--t12);color:#a8a8a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ig-head .more{margin-left:auto;width:20px;height:20px;color:#fff;flex:none}
+.media{position:relative;background:#0a0a0a}
+.track{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.track::-webkit-scrollbar{display:none}
+.track:focus-visible{outline-offset:-3px}
+.slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;margin:0;aspect-ratio:var(--ar,4/5)}
+.slide img{width:100%;height:100%;object-fit:cover}
+.count{position:absolute;top:12px;right:12px;font-size:var(--t12);font-weight:600;padding:2px 8px;border-radius:999px;background:rgba(18,18,18,.78);pointer-events:none}
+.arrow{position:absolute;top:50%;translate:0 -50%;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#111;display:grid;place-items:center;
+  transition:opacity var(--fast) ease-out;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.arrow svg{width:16px;height:16px}
+.arrow.prev{left:8px}.arrow.next{right:8px}
+.arrow[disabled]{visibility:hidden}
+@media (hover:hover) and (pointer:fine){.arrow{opacity:0}.media:hover .arrow,.arrow:focus-visible{opacity:1}}
+@media (pointer:coarse){.arrow{display:none}}
+.ig-actions{display:flex;align-items:center;gap:14px;padding:10px 12px 4px;position:relative}
+.ig-actions svg{width:24px;height:24px}
+.ig-actions .save{margin-left:auto}
+.dots{position:absolute;left:50%;top:50%;translate:-50% -50%;display:flex;gap:4px;align-items:center}
+.dots i{display:block;width:6px;height:6px;border-radius:3px;background:#fff;opacity:.4;transition:width 200ms ease-out,opacity 200ms ease-out}
+.dots i.on{width:16px;opacity:1;background:#3897F0}
+.ig-loc{font-size:var(--t12);color:#ddd}
+.ig-cap{padding:4px 12px 0;font-size:var(--t15);line-height:1.45;color:#f5f5f5;overflow-wrap:anywhere}
+.ig-cap .txt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ig-cap.open .txt{display:block}
+.ig-cap b{font-weight:700;margin-right:5px}
+.ig-cap .tag{color:var(--tag)}
+.morebtn{background:none;border:0;color:#a8a8a8;padding:0;font-size:var(--t15);min-height:44px;min-width:44px;text-align:left}
+.ig-date{padding:0 12px var(--s4);font-size:var(--t12);color:#a8a8a8;letter-spacing:.04em;text-transform:uppercase}
+.opt{display:flex;gap:6px;padding:10px 12px 0}
+.opt button{flex:1;border:1px solid var(--line-2);background:transparent;border-radius:10px;min-height:44px;font-size:var(--t13);font-weight:600}
+.opt button[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* ---------- notes card ---------- */
+.notes{max-width:470px}
+.notes .h3{color:var(--amber);display:flex;align-items:center;gap:var(--s2)}
+.notes .h3.ok{color:var(--ok)}
+.bul{margin:0;padding:0;list-style:none;display:grid;gap:var(--s2)}
+.bul li{position:relative;padding-left:var(--s4);font-size:var(--t13);line-height:1.5;color:#dedad2}
+.bul li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--amber)}
+.bul.g li::before{background:var(--ok)}
+.bul.x li::before{background:var(--bad)}
+.files{margin-top:var(--s3);font-size:var(--t12);color:var(--dim);overflow-wrap:anywhere}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s3)}
+.compare figure{margin:0}
+.compare .fr{aspect-ratio:4/5;background:#000;border-radius:10px;overflow:hidden;display:grid;place-items:center;border:1px solid var(--line)}
+.compare .fr img{width:100%}
+.compare figcaption{font-size:var(--t12);color:var(--muted);margin-top:6px}
+details.more{margin-top:var(--s3);border-top:1px solid var(--line)}
+details.more summary{min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:var(--s2);font-size:var(--t13);font-weight:600;list-style:none}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";font-size:var(--t17);color:var(--muted)}
+details.more[open] summary::after{content:"–"}
+.kv{display:grid;gap:var(--s3);padding-bottom:var(--s1)}
+.kv dt{font-size:var(--t12);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 var(--s1)}
+.kv dd{margin:0;font-size:var(--t13);line-height:1.5;color:#e6e2da;overflow-wrap:anywhere}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{display:inline-block;font-size:var(--t13);padding:2px 10px;border-radius:999px;border:1px solid var(--line-2);color:var(--tag)}
+.pill.plain{color:var(--paper)}
+.warn{color:var(--amber)}
+.alts{margin:0;padding-left:var(--s5);display:grid;gap:var(--s1)}
+.alts small{color:var(--dim)}
+
+/* ---------- profile & tags panel ---------- */
+.pgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3)}
+.pgrid .card{padding:var(--s4)}
+.pval{font-size:var(--t15);line-height:1.5;margin:0;white-space:pre-line;overflow-wrap:anywhere}
+.pval.big{font:400 var(--t22)/1.2 var(--serif)}
+.meta{font-size:var(--t12);color:var(--dim);margin:var(--s2) 0 0}
+.meta.ok{color:var(--ok)}
+.meta.bad{color:var(--bad)}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:flex;gap:var(--s3);align-items:baseline;justify-content:space-between;padding:var(--s2) 0;border-top:1px solid var(--line);font-size:var(--t13);min-height:44px}
+.rows li:first-child{border-top:0}
+.rows li b{font-weight:600;flex:none}
+.rows li span{color:var(--muted);text-align:right;overflow-wrap:anywhere;min-width:0}
+.rows li a{color:var(--tag);text-align:right;overflow-wrap:anywhere;min-height:44px;display:inline-flex;align-items:center}
+.src{font-size:var(--t13);line-height:1.5;color:var(--muted);margin:0;padding-left:var(--s5);display:grid;gap:var(--s2)}
+.src a{color:var(--tag)}
+.span2{grid-column:1/-1}
+
+/* ---------- date view ---------- */
+.empty-day{border:1px dashed var(--line-2);border-radius:var(--r);padding:var(--s6) var(--s5);color:var(--muted);text-align:center}
+.empty-day .h2{color:var(--paper);margin-bottom:var(--s2)}
+
+.foot{max-width:1240px;margin:0 auto;padding:var(--s5) var(--pad) var(--s5);border-top:1px solid var(--line);color:var(--dim);font-size:var(--t12)}
+.foot p{margin:0 0 6px}
+.foot strong{color:var(--muted)}
+
+/* ---------- larger screens ---------- */
+@media (min-width:700px){
+  :root{--pad:var(--s6)}
+  .cards{grid-template-columns:1fr 1fr}
+  .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .post-row{grid-template-columns:minmax(0,470px) minmax(0,1fr);align-items:start;column-gap:var(--s5)}
+  .post-meta{grid-column:1 / -1}
+  .notes{position:sticky;top:80px}
+  .week{grid-template-columns:repeat(7,1fr)}
+}
+@media (min-width:1080px){
+  .cards{grid-template-columns:repeat(4,1fr)}
+  .pgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .client-layout{grid-template-columns:360px minmax(0,1fr);gap:var(--s7);align-items:start}
+  .profile-col{position:sticky;top:80px}
+  .phone{border:10px solid #1a1a1d;border-radius:44px}
+  .hero{padding:var(--s7) 0 var(--s6)}
+  .stats{max-width:720px}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
+/* M3 colour states, 150ms ease-out */
+.seg a,.tabs a,.dock a,.opt button,.ig-btns button,a.card,.morebtn,.rows a,.src a{transition:background-color 150ms ease-out,color 150ms ease-out,border-color 150ms ease-out}
+.dock.no-ind .dock-ind{display:none}
+.brand{min-width:44px}
+.src a{display:inline-flex;align-items:center;min-height:44px;overflow-wrap:anywhere}
+.src li{line-height:1.4}
+
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B0B0C'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' text-anchor='middle' fill='%23E9D8A6'%3EE%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="?view=overview" data-link aria-label="ELK planner preview, overview">
+    <span class="brand-mark" aria-hidden="true">ELK</span>
+    <span class="brand-sub">Planner preview</span>
+  </a>
+  <nav class="seg" aria-label="Views">
+    <a href="?view=overview" data-link data-nav="overview">Overview</a>
+    <a href="?view=client&amp;c=tw" data-link data-nav="client">Clients</a>
+    <a href="?view=date&amp;d=2026-10-24" data-link data-nav="date">Dates</a>
+  </nav>
+</header>
+<main id="main" tabindex="-1">
+  <noscript><p class="noscript">This preview needs JavaScript to show the posts.</p></noscript>
+</main>
+<nav class="dock no-ind" id="dock" aria-label="Switch"><div class="dock-in"></div></nav>
+<footer class="foot">
+  <p><strong>Drafts for internal review.</strong> Nothing here is scheduled or posted. Round 2 files, captions from captions-R2.md (hashtags trimmed to Instagram's 5-tag cap in this preview). Profile and tag suggestions draw on public sources and Meta AI (meta.ai), 22 Oct 2026. Built 22 Oct 2026.</p>
+  <p>Fonts: Instrument Serif and Inter Tight (SIL Open Font License), self-hosted.</p>
+</footer>
+<script>
+/* Generated by content-preview-build/build.py. Drafts, not posted. */
+window.PREVIEW = {
+ "clients": [
+  {
+   "slug": "tw",
+   "name": "TW Fresh Food Centre",
+   "short": "TW",
+   "dock": "TW",
+   "score": 87,
+   "tagline": "International grocer · Tunbridge Wells",
+   "accent": "#7FB069",
+   "captionSource": "captions-R2.md",
+   "logo": "assets/logos/tw",
+   "profile": {
+    "handle": null,
+    "handleNote": "No handle shown. A likely account, @tw.freshfoodcentre (\"TW. FRESH FOOD CENTRE\", 12 posts, \"Coming soon\" avatar), exists, but nothing the business owns links to it. Confirm with the client first.",
+    "nameField": "TW Fresh Food Centre | Grocer",
+    "category": "Grocery store (most specific match; try \"International grocery store\" if Instagram offers it)",
+    "bio": "International grocer & fresh produce in Tunbridge Wells\nSpices · dates · olives · fruit & veg · butcher counter\n📍 283 Upper Grosvenor Rd, TN4 9EX",
+    "action": null,
+    "actionNote": "No action button. There's no ordering or booking partner, so Directions does the job.",
+    "contacts": [
+     [
+      "Directions",
+      "283 Upper Grosvenor Road, Royal Tunbridge Wells TN4 9EX"
+     ],
+     [
+      "Call",
+      "Not shown. No public number found. Add it once the client confirms one."
+     ]
+    ],
+    "links": [
+     [
+      "Directions (Google Maps)",
+      "https://www.google.com/maps/search/?api=1&query=283+Upper+Grosvenor+Road+Royal+Tunbridge+Wells+TN4+9EX"
+     ]
+    ],
+    "highlights": [
+     "New in",
+     "World aisle",
+     "Spices",
+     "Fruit & veg",
+     "Butcher",
+     "Find us"
+    ],
+    "location": "TW Fresh Food Centre, 283 Upper Grosvenor Road (create the Place through Facebook if it's missing). Same place on every post.",
+    "collabs": [],
+    "collabNote": "No verified local accounts to tag yet.",
+    "flags": [
+     "\"Halal\" is left out. The shoot shows a halal sign at the counter, but the client hasn't confirmed it.",
+     "One Facebook post calls the shop \"Tunbridge Wells International Food Centre\". Confirm the trading name."
+    ],
+    "facts": [
+     "Address: FSA food hygiene register (283 Upper Grosvenor Road, TN4 9EX; inspected 25 Feb 2026). No website found."
+    ],
+    "metaAi": {
+     "took": [
+      "Category: Grocery store",
+      "Location tag: the shop's own Place",
+      "Highlights: \"World aisle\", \"Spices\""
+     ],
+     "rejected": [
+      "\"Open daily 9-9\" (hours not public)",
+      "\"Afro-Caribbean & halal groceries\" (not verified)",
+      "WhatsApp button (no public number)",
+      "Name \"TW Fresh Food Centre | TW\" (repeats the brand, so there's no keyword)"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "liman",
+   "name": "Liman",
+   "short": "Li",
+   "dock": "Liman",
+   "score": 89,
+   "tagline": "Meze & cocktails · Islington",
+   "accent": "#E0A458",
+   "captionSource": "captions-R2.md",
+   "logo": "assets/logos/liman",
+   "profile": {
+    "handle": "liman_kitchen",
+    "handleProof": "Linked from liman.co.uk. IG name \"Liman Restaurant\", 499 posts.",
+    "nameField": "Liman | Turkish Restaurant N1",
+    "category": "Turkish restaurant",
+    "bio": "Turkish & Mediterranean kitchen in Islington\nMeze · grills · cocktails · terrace\n📍 60 Penton St, Angel N1 9PZ\nBook a table 👇",
+    "action": null,
+    "actionNote": "Use Reserve only if Liman's booking widget is an Instagram Reserve partner (not confirmed). Otherwise make link 1 the booking page.",
+    "contacts": [
+     [
+      "Call",
+      "020 3583 6442 (liman.co.uk)"
+     ],
+     [
+      "Directions",
+      "60 Penton Street, London N1 9PZ (liman.co.uk)"
+     ]
+    ],
+    "links": [
+     [
+      "Book a table",
+      "https://www.liman.co.uk/book-a-table.html"
+     ],
+     [
+      "Menus",
+      "https://www.liman.co.uk/"
+     ],
+     [
+      "Directions (Google Maps)",
+      "https://www.google.com/maps/search/?api=1&query=Liman+60+Penton+Street+London+N1+9PZ"
+     ]
+    ],
+    "highlights": [
+     "Menu",
+     "Meze & grill",
+     "Cocktails",
+     "Terrace",
+     "Inside Liman",
+     "Find us"
+    ],
+    "location": "Liman Restaurant, 60 Penton Street (the existing Place). Same place on every post.",
+    "collabs": [
+     [
+      "angelislington.london",
+      "Angel Islington BID. Linked from angelislington.london, IG name \"Angel Islington\". Tag it on the Find us and terrace posts."
+     ]
+    ],
+    "flags": [
+     "liman.co.uk still shows a \"New Year 2017\" closing notice. Worth tidying before the bio links to it.",
+     "No email is shown: none appears on Liman's own site."
+    ],
+    "facts": [
+     "liman.co.uk/contact: 60 Penton Street, London N1 9PZ · 020 3583 6442 · Mon–Sat 12:00–22:00, Sun 12:00–21:00"
+    ],
+    "metaAi": {
+     "took": [
+      "Name pattern \"Liman | Turkish … N1\"",
+      "Category: Turkish restaurant",
+      "Highlights: Menu, Meze & grill, Cocktails, Inside Liman",
+      "#AngelIslington"
+     ],
+     "rejected": [
+      "\"Fertile Crescent\", \"kebabs, fresh fish\", \"Baklava\" (not on the posts or checked menus)",
+      "Reserve via OpenTable (no OpenTable link found)",
+      "Order Food (no delivery partner found)",
+      "#LimanLondon (branded tag with no search demand)"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "baker-crafts",
+   "name": "Baker Crafts",
+   "short": "BC",
+   "dock": "Baker",
+   "score": 87,
+   "tagline": "Professional bakery supplies · Enfield",
+   "accent": "#E8B4B8",
+   "captionSource": "captions-R2.md",
+   "logo": "assets/logos/baker-crafts",
+   "profile": {
+    "handle": "bakercraftsuk",
+    "handleProof": "Linked from bakercrafts.co.uk. IG name \"Baker Crafts\", 409 posts.",
+    "nameField": "Baker Crafts | Bakery Supplies",
+    "category": "Baking supply store (if listed; otherwise \"Wholesale grocer\")",
+    "bio": "Professional bakery & patisserie ingredients, UK-wide\nCake mixes · glazes · creams · packaging\n🚚 Free delivery over £300 · Shop below 👇",
+    "action": null,
+    "actionNote": "\"View shop\" only works once Instagram Shopping and a catalogue are connected. Until then, link 1 is the website.",
+    "contacts": [
+     [
+      "Call",
+      "020 8211 2186 (bakercrafts.co.uk)"
+     ],
+     [
+      "Email",
+      "info@bakercrafts.co.uk (bakercrafts.co.uk)"
+     ]
+    ],
+    "links": [
+     [
+      "Shop",
+      "https://bakercrafts.co.uk/"
+     ],
+     [
+      "Vizyon range",
+      "https://bakercrafts.co.uk/collections/vizyon"
+     ]
+    ],
+    "highlights": [
+     "New in",
+     "Vizyon mixes",
+     "Glazes",
+     "How to use",
+     "Packaging",
+     "Delivery"
+    ],
+    "location": "No street location (it's an online supplier). Tag \"Enfield, London\" or \"London, United Kingdom\".",
+    "collabs": [
+     [
+      "polen.food",
+      "Polen Gıda, the maker of Vizyon. Linked from polengida.com, IG name \"Polen Gıda\". Tag it in the image on Vizyon posts. Product tags need Instagram Shopping."
+     ]
+    ],
+    "flags": [
+     "\"Since 1994\" (from the logo lockup) is left out of the bio until the client confirms it.",
+     "Directions is left off on purpose, since it's an online trade supplier."
+    ],
+    "facts": [
+     "bakercrafts.co.uk: Unit 10 Watermill Business Centre, Edison Road, Enfield EN3 7XF (verified, but not used as a location tag) · free express delivery over £300"
+    ],
+    "metaAi": {
+     "took": [
+      "No street location; tag Enfield/London",
+      "Link 2: the Vizyon collection (URL checked, HTTP 200)",
+      "Highlights: Vizyon mixes, Glazes, How to use",
+      "#Vizyon, #CakeMix"
+     ],
+     "rejected": [
+      "\"Official Vizyon partner\" / name \"Baker Crafts | Vizyon UK\" (partnership not verified)",
+      "WhatsApp button (number not checked for WhatsApp)",
+      "Reviews highlight (no review source yet)"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "aara",
+   "name": "Aara",
+   "short": "Aa",
+   "dock": "Aara",
+   "score": 90,
+   "tagline": "Indian restaurant · Birmingham",
+   "accent": "#D4AF37",
+   "captionSource": "captions-R2.md",
+   "logo": "assets/logos/aara",
+   "profile": {
+    "handle": "aaraindianrestaurant",
+    "handleProof": "Linked from aaraindian.com and confirmed by the client on 7 Oct. IG name \"Aara Indian Restaurant\", 13 posts.",
+    "nameField": "Aara | Indian, Jewellery Qtr",
+    "category": "Indian restaurant (or \"South Indian restaurant\", the more specific match, if Instagram lists it)",
+    "bio": "South Indian kitchen in Birmingham's Jewellery Quarter\nTandoor tikkas · dum biryanis · halal meat · veg dishes\nOpen daily from 12pm. Book or order:",
+    "action": [
+     "Reserve or Order Food",
+     "Use only through a supported partner. Square ordering may not qualify, so check it in Edit profile → Action buttons."
+    ],
+    "actionNote": "",
+    "contacts": [
+     [
+      "Call",
+      "0121 389 9882 (aaraindian.com)"
+     ],
+     [
+      "Email",
+      "hello@aaraindian.com (aaraindian.com)"
+     ],
+     [
+      "Directions",
+      "108-109 Icknield Street, Birmingham B18 6RZ (aaraindian.com/contact)"
+     ]
+    ],
+    "links": [
+     [
+      "Book a table",
+      "https://www.aaraindian.com/book"
+     ],
+     [
+      "Order for collection",
+      "https://order.aaraindian.com/"
+     ],
+     [
+      "Menu",
+      "https://www.aaraindian.com/menu"
+     ],
+     [
+      "All links",
+      "https://www.aaraindian.com/links"
+     ]
+    ],
+    "highlights": [
+     "Diwali 🪔",
+     "Menu",
+     "Biryanis",
+     "Tikkas",
+     "Book",
+     "Find us"
+    ],
+    "location": "Aara, 108-109 Icknield Street (always the same Place, to build ranking).",
+    "collabs": [
+     [
+      "jq_bid",
+      "The Jewellery Quarter BID. Listed on thejewelleryquarter.org, IG name \"The Jewellery Quarter BID\". Tag it on the Diwali and shopfront posts."
+     ]
+    ],
+    "flags": [
+     "The name and the script (ఆరా vs ಆರಾ) are Hemanth's decisions. The bio uses \"Aara\" and no script.",
+     "\"Halal meat\" comes from aaraindian.com/menu (\"We use halal meat in our meat dishes\")."
+    ],
+    "facts": [
+     "aaraindian.com/contact: 108-109 Icknield Street, Birmingham B18 6RZ · 0121 389 9882 · hello@aaraindian.com"
+    ],
+    "metaAi": {
+     "took": [
+      "Name pattern \"Aara | Indian | Jewellery Qtr\"",
+      "Diwali highlight first",
+      "Always tag the same Place",
+      "#JewelleryQuarter and #DiwaliBirmingham-style local tags"
+     ],
+     "rejected": [
+      "\"Award-winning\" (no award found)",
+      "\"Cocktails\" and \"pink-green vibes\" (not verified)",
+      "\"Pin 3 posts\" and the diya profile photo (creative calls for Hemanth)"
+     ]
+    }
+   }
+  }
+ ],
+ "posts": [
+  {
+   "id": "tw-2026-10-24",
+   "client": "tw",
+   "date": "2026-10-24",
+   "type": "carousel",
+   "title": "International products",
+   "caption": "Fancy a taste of somewhere new? 🌍\nOur shelves are full of international favourites, from sumac and smoked paprika to Medjool and Khalas dates, strained yoghurt and a colourful selection of olives.\nSwipe through, then pop in and pick up something new for your next meal.\n\n📍 TW Fresh Food Centre, 283 Upper Grosvenor Road, Tunbridge Wells TN4 9EX\n\n#TWFreshFoodCentre #TunbridgeWells #InternationalFood #WorldFoods #Spices #MedjoolDates #Olives #LocalShop #ShopLocalKent #TunbridgeWellsFood",
+   "decisions": [
+    "Readable price tickets are blurred on slides 1, 2, 3 and 6, including a \"Special offer … £/kg\" ticket on slide 6, so the post shows no prices or offers.",
+    "\"Fresh meat\" is kept on slide 6 because the client's own shoot shows a halal butcher's counter. Easy to drop if preferred."
+   ],
+   "slides": [
+    {
+     "src": "assets/img/tw/2026-10-24-carousel-01",
+     "file": "2026-10-24-carousel-01-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/tw/2026-10-24-carousel-02",
+     "file": "2026-10-24-carousel-02-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/tw/2026-10-24-carousel-03",
+     "file": "2026-10-24-carousel-03-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/tw/2026-10-24-carousel-04",
+     "file": "2026-10-24-carousel-04-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/tw/2026-10-24-carousel-05",
+     "file": "2026-10-24-carousel-05-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/tw/2026-10-24-carousel-06",
+     "file": "2026-10-24-carousel-06-R2.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#TunbridgeWells",
+    "#WorldFoods",
+    "#InternationalGrocery",
+    "#MedjoolDates",
+    "#ShopLocalKent"
+   ],
+   "people": [],
+   "alt": [
+    "Grocery aisle stacked with international products at TW Fresh Food Centre, Tunbridge Wells",
+    "Bags of garlic powder and other spices on a shop shelf",
+    "Boxes of Medjool and Khalas dates on a shelf",
+    "Tubs of strained and natural yoghurt in a shop chiller",
+    "Self-serve trays of green and black olives",
+    "Butcher counter and aisle, with the address 283 Upper Grosvenor Road, TN4 9EX"
+   ],
+   "location": "TW Fresh Food Centre, 283 Upper Grosvenor Road",
+   "capTags": 10
+  },
+  {
+   "id": "tw-2026-10-28",
+   "client": "tw",
+   "date": "2026-10-28",
+   "type": "static",
+   "title": "Everyday ingredients & groceries",
+   "caption": "Everyday ingredients, all in one place 🍎🥕\nFrom fresh fruit and veg to cupboard staples, you can pick up everything for the week ahead in one easy shop.\n\n📍 TW Fresh Food Centre, 283 Upper Grosvenor Road, Tunbridge Wells TN4 9EX\n\n#TWFreshFoodCentre #TunbridgeWells #FreshProduce #FruitAndVeg #WeeklyShop #Groceries #ShopLocal #TunbridgeWellsLocal",
+   "decisions": [
+    "Readable shelf prices are blurred."
+   ],
+   "slides": [
+    {
+     "src": "assets/img/tw/2026-10-28-static",
+     "file": "2026-10-28-static-R2.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#TunbridgeWells",
+    "#FruitAndVeg",
+    "#WeeklyShop",
+    "#ShopLocalKent"
+   ],
+   "people": [],
+   "alt": [
+    "Shelves of fresh apples, oranges and vegetables at TW Fresh Food Centre"
+   ],
+   "location": "TW Fresh Food Centre, 283 Upper Grosvenor Road",
+   "capTags": 8
+  },
+  {
+   "id": "tw-2026-10-30",
+   "client": "tw",
+   "date": "2026-10-30",
+   "type": "static",
+   "title": "Fresh picks, every visit",
+   "caption": "Fresh picks, every visit 🥬\nCome and browse our chillers and shelves, and find something good for dinner tonight.\n\n📍 TW Fresh Food Centre, 283 Upper Grosvenor Road, Tunbridge Wells TN4 9EX\n\n#TWFreshFoodCentre #TunbridgeWells #FreshFood #ShopLocal #LocalGrocer #TunbridgeWellsLocal",
+   "decisions": [
+    "Unchanged from round 1. A shopper is seen from behind and isn't identifiable; consent assumed from the client's own shoot."
+   ],
+   "slides": [
+    {
+     "src": "assets/img/tw/2026-10-30-static",
+     "file": "2026-10-30-static.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#TunbridgeWells",
+    "#FreshProduce",
+    "#LocalGrocer"
+   ],
+   "people": [],
+   "alt": [
+    "Shopper, seen from behind, picking fresh vegetables from a chiller"
+   ],
+   "location": "TW Fresh Food Centre, 283 Upper Grosvenor Road",
+   "capTags": 6
+  },
+  {
+   "id": "liman-2026-10-24",
+   "client": "liman",
+   "date": "2026-10-24",
+   "type": "static",
+   "title": "Find us on Penton Street",
+   "caption": "Your next drink is on Penton Street 🍸\nCocktails, meze and warm hospitality, a short walk from Angel.\n\n📍 Liman, 60 Penton Street, London N1 9PZ\n📞 020 3583 6442 | liman.co.uk\nMap data © OpenStreetMap contributors\n\n#Liman #Islington #Angel #N1 #LondonCocktails #TurkishRestaurant #MediterraneanFood #Meze #IslingtonEats #LondonRestaurants",
+   "decisions": [],
+   "slides": [
+    {
+     "src": "assets/img/liman/2026-10-24-static",
+     "file": "2026-10-24-static-R2.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#Islington",
+    "#AngelIslington",
+    "#LondonCocktails",
+    "#TurkishRestaurant",
+    "#N1"
+   ],
+   "people": [
+    "angelislington.london"
+   ],
+   "alt": [
+    "Street map of Penton Street with Liman's terrace and an orange-red cocktail"
+   ],
+   "location": "Liman Restaurant, 60 Penton Street",
+   "capTags": 10
+  },
+  {
+   "id": "liman-2026-10-28",
+   "client": "liman",
+   "date": "2026-10-28",
+   "type": "carousel",
+   "title": "4 reasons you keep coming back",
+   "caption": "4 reasons you keep coming back to Liman ✨\n1. The food: from Berrie's Mix Meze to Nesli's Set Menu, there's always one more plate to share\n2. The vibe: warm lights, cosy corners and slow evenings\n3. The cocktails: crafted, and worth lingering over\n4. The terrace: outdoor tables on Penton Street for long lunches and people-watching\n\nGot another reason? Tell us in the comments 👇\n\n📍 60 Penton Street, Islington N1 9PZ\n\n#Liman #Islington #Angel #MezeNight #TurkishFood #MediterraneanRestaurant #LondonCocktails #IslingtonRestaurants #DateNightLondon",
+   "decisions": [
+    "The cover cocktail is the same drink used as the cut-out on the 24 Oct post. Alternative cover: the pendant-light interior, but that already appears on slide 3.",
+    "Slide 2 shows identifiable diners (consent unconfirmed)."
+   ],
+   "slides": [
+    {
+     "src": "assets/img/liman/2026-10-28-carousel-01",
+     "file": "2026-10-28-carousel-01-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/liman/2026-10-28-carousel-02",
+     "file": "2026-10-28-carousel-02-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/liman/2026-10-28-carousel-03",
+     "file": "2026-10-28-carousel-03-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/liman/2026-10-28-carousel-04",
+     "file": "2026-10-28-carousel-04-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/liman/2026-10-28-carousel-05",
+     "file": "2026-10-28-carousel-05-R2.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#IslingtonRestaurants",
+    "#Meze",
+    "#TurkishFood",
+    "#DateNightLondon",
+    "#AngelIslington"
+   ],
+   "people": [
+    "angelislington.london"
+   ],
+   "alt": [
+    "Orange and red layered cocktail in a cut-glass tumbler at Liman, Islington",
+    "Diners sharing plates of Turkish food at a Liman table",
+    "Liman dining room under warm pendant lights",
+    "Two hands raising cocktails over a restaurant table",
+    "Liman's purple shopfront with terrace tables and flowers on Penton Street"
+   ],
+   "location": "Liman Restaurant, 60 Penton Street",
+   "capTags": 9
+  },
+  {
+   "id": "liman-2026-10-30",
+   "client": "liman",
+   "date": "2026-10-30",
+   "type": "static",
+   "title": "A love letter to slow evenings",
+   "caption": "A love letter to slow evenings 🤍\nJoin us at Liman for meze, cocktails and good company.\n\n📍 60 Penton Street, Islington N1 9PZ | liman.co.uk\n\n#Liman #Islington #Angel #N1 #LondonFood #TurkishRestaurant #Meze",
+   "decisions": [],
+   "slides": [
+    {
+     "src": "assets/img/liman/2026-10-30-static",
+     "file": "2026-10-30-static.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#Islington",
+    "#Meze",
+    "#MediterraneanFood"
+   ],
+   "people": [],
+   "alt": [
+    "Meze plates, grilled chicken with rice and red wine on a Liman table"
+   ],
+   "location": "Liman Restaurant, 60 Penton Street",
+   "capTags": 7
+  },
+  {
+   "id": "baker-crafts-2026-10-24",
+   "client": "baker-crafts",
+   "date": "2026-10-24",
+   "type": "static",
+   "title": "Vizyon Carrot Cake Mix",
+   "caption": "Moist, spiced carrot cake made easy 🥕 Vizyon Carrot Cake Mix is a professional 10 kg bakery blend with 15% real dried carrot and a warming mix of spices including cinnamon. It's ideal for bakeries, cafés and catering kitchens.\n\n£48.00 per 10 kg bag. Cake pictured is a serving suggestion (stock image).\n💷 Prices correct at 22 Oct 2026, tax included, plus delivery.\n🚚 Free delivery on orders over £300. Order before 12pm for next working day delivery. No deliveries on weekends or public holidays.\n📍 Baker crafts, Unit 10 Watermill Business Centre, Edison Road, Enfield EN3 7XF\n📞 020 8211 2186 | 07932 659641\n🌐 bakercrafts.co.uk\n🔗 Visit our site – link in bio\n📩 info@bakercrafts.co.uk\n\n#BakerCrafts #CarrotCake #CakeMix #Vizyon #BakingIngredients #ProfessionalBaking #BakeryUK",
+   "decisions": [
+    "The cake is an Unsplash stock photo, labelled \"Serving suggestion · stock image\" on the post. Whether to use stock at all is an open call.",
+    "Price wording says \"tax included\" (the site's own wording). \"Inc. VAT\" is unconfirmed, as the site never mentions VAT."
+   ],
+   "slides": [
+    {
+     "src": "assets/img/baker-crafts/2026-10-24-static",
+     "file": "2026-10-24-static-R2.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#CarrotCake",
+    "#CakeMix",
+    "#BakingIngredients",
+    "#BakeryUK",
+    "#Vizyon"
+   ],
+   "people": [
+    "polen.food"
+   ],
+   "alt": [
+    "Carrot cake slice (stock image) beside a 10 kg bag of Vizyon Carrot Cake Mix, £48"
+   ],
+   "location": "Enfield, London (no street address)",
+   "capTags": 7
+  },
+  {
+   "id": "baker-crafts-2026-10-28",
+   "client": "baker-crafts",
+   "date": "2026-10-28",
+   "type": "carousel",
+   "title": "Vizyon cold glazes, all 9",
+   "caption": "Give your bakes the glossy finish they deserve ✨\nVizyon Cold Glazes need no heating: just apply straight from the pail for a smooth, shiny finish.\n\n🍫 Chocolate – £25.00\n🍮 Caramel – £22.50\n🥛 Trileche Caramel Sauce – £20.00\n🍌 Banana – £19.00\n🍓 Strawberry – £19.00\n❤️ Raspberry – £19.00\n🫐 Blueberry – £20.00\n🤍 Vanilla White – £20.00\n✨ Neutral – £19.00\n(all per 7 kg pail)\n\nWhich glaze are you reaching for first? 👇\n💷 Prices correct at 22 Oct 2026, tax included, plus delivery.\n🚚 Free delivery on orders over £300. Order before 12pm for next working day delivery. No deliveries on weekends or public holidays.\n📍 Baker crafts, Unit 10 Watermill Business Centre, Edison Road, Enfield EN3 7XF\n📞 020 8211 2186 | 07932 659641\n🌐 bakercrafts.co.uk\n🔗 Visit our site – link in bio\n📩 info@bakercrafts.co.uk\n\n#BakerCrafts #Vizyon #MirrorGlaze #ColdGlaze #CakeDecorating #BakingIngredients #PatisserieUK #ProfessionalBaking",
+   "decisions": [
+    "Prices taken from bakercrafts.co.uk on 22 Oct 2026, shown as \"tax included\" because VAT is unconfirmed. Recheck on posting day."
+   ],
+   "slides": [
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-01",
+     "file": "2026-10-28-carousel-01-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-02",
+     "file": "2026-10-28-carousel-02-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-03",
+     "file": "2026-10-28-carousel-03-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-04",
+     "file": "2026-10-28-carousel-04-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-05",
+     "file": "2026-10-28-carousel-05-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-06",
+     "file": "2026-10-28-carousel-06-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-07",
+     "file": "2026-10-28-carousel-07-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-08",
+     "file": "2026-10-28-carousel-08-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-09",
+     "file": "2026-10-28-carousel-09-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-10",
+     "file": "2026-10-28-carousel-10-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/baker-crafts/2026-10-28-carousel-11",
+     "file": "2026-10-28-carousel-11-R2.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#ColdGlaze",
+    "#MirrorGlaze",
+    "#CakeDecorating",
+    "#PatisserieUK",
+    "#Vizyon"
+   ],
+   "people": [
+    "polen.food"
+   ],
+   "alt": [
+    "Pails of Vizyon cold glaze under a dripping glaze border",
+    "Pail of Vizyon Chocolate Cold Glaze, £25.00 per 7 kg",
+    "Pail of Vizyon Caramel Cold Glaze, £22.50 per 7 kg",
+    "Pail of Vizyon Trileche Caramel Sauce, £20.00 per 7 kg",
+    "Pail of Vizyon Banana Cold Glaze, £19.00 per 7 kg",
+    "Pail of Vizyon Strawberry Cold Glaze, £19.00 per 7 kg",
+    "Pail of Vizyon Raspberry Cold Glaze, £19.00 per 7 kg",
+    "Pail of Vizyon Blueberry Cold Glaze, £20.00 per 7 kg",
+    "Pail of Vizyon Vanilla White Cold Glaze, £20.00 per 7 kg",
+    "Pail of Vizyon Neutral Cold Glaze, £19.00 per 7 kg",
+    "List of all nine Vizyon cold glaze flavours, shop at bakercrafts.co.uk"
+   ],
+   "location": "Enfield, London (no street address)",
+   "capTags": 8
+  },
+  {
+   "id": "baker-crafts-2026-10-30",
+   "client": "baker-crafts",
+   "date": "2026-10-30",
+   "type": "static",
+   "title": "Vizyon Black Velvet Cake Mix",
+   "caption": "Dark, dramatic and delicious 🖤 Vizyon Black Velvet Cake Mix pairs rich cocoa and chocolate flavour with a deep black finish, for striking modern cakes with a velvety soft crumb. 10 kg professional bakery blend.\n\n£45.00 per 10 kg bag. Cake pictured is the bake image from the Vizyon pack.\n💷 Prices correct at 22 Oct 2026, tax included, plus delivery.\n🚚 Free delivery on orders over £300. Order before 12pm for next working day delivery. No deliveries on weekends or public holidays.\n📍 Baker crafts, Unit 10 Watermill Business Centre, Edison Road, Enfield EN3 7XF\n📞 020 8211 2186 | 07932 659641\n🌐 bakercrafts.co.uk\n🔗 Visit our site – link in bio\n📩 info@bakercrafts.co.uk\n\n#BakerCrafts #BlackVelvetCake #CakeMix #Vizyon #BakingIngredients #ProfessionalBaking #BakeryUK",
+   "decisions": [
+    "The Black Velvet image is cut from the pack render (the site's only product image) and upscaled, so it's soft. A real bake or pack photo from the client would be better.",
+    "Price wording says \"tax included\", as VAT is unconfirmed."
+   ],
+   "slides": [
+    {
+     "src": "assets/img/baker-crafts/2026-10-30-static",
+     "file": "2026-10-30-static-R2.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#BlackVelvetCake",
+    "#CakeMix",
+    "#BakeryUK",
+    "#Vizyon"
+   ],
+   "people": [
+    "polen.food"
+   ],
+   "alt": [
+    "Black velvet layer cake with berries beside a bag of Vizyon Black Velvet Cake Mix, £45"
+   ],
+   "location": "Enfield, London (no street address)",
+   "capTags": 7
+  },
+  {
+   "id": "aara-2026-10-26",
+   "client": "aara",
+   "date": "2026-10-26",
+   "type": "carousel",
+   "title": "Diwali: celebrate a little more",
+   "caption": "This Diwali, celebrate a little more 🪔\nA little more light, a little more happiness, and plenty of good food around the table. ✨\n\nGather your loved ones and celebrate the festival of lights with us at Aara. Diwali is Sunday 8 November.\n\nBook your Diwali table 👉 aaraindian.com/book or call 0121 389 9882\n\n📍 108-109 Icknield Street, Birmingham B18 6RZ\n\n#AaraIndianRestaurant #Diwali #Diwali2026 #FestivalOfLights #BirminghamFood #BirminghamRestaurants #IndianFood #Biryani #JewelleryQuarter",
+   "decisions": [
+    "Wordmark script: the brand kit uses Telugu ఆరా, but the live site shows Kannada ಆರಾ. Decide before anything goes public.",
+    "Slide 1 shows beer and wine glasses on the table. Keep them, or swap slide 1 for a Diwali greeting."
+   ],
+   "slides": [
+    {
+     "src": "assets/img/aara/2026-10-26-carousel-01",
+     "file": "2026-10-26-carousel-01-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/aara/2026-10-26-carousel-02",
+     "file": "2026-10-26-carousel-02-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/aara/2026-10-26-carousel-03",
+     "file": "2026-10-26-carousel-03-R2.png",
+     "w": 1080,
+     "h": 1350
+    },
+    {
+     "src": "assets/img/aara/2026-10-26-carousel-04",
+     "file": "2026-10-26-carousel-04-R2.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#Diwali2026",
+    "#DiwaliBirmingham",
+    "#JewelleryQuarter",
+    "#BirminghamRestaurants",
+    "#IndianFood"
+   ],
+   "people": [
+    "jq_bid"
+   ],
+   "alt": [
+    "Table of Indian dishes, drinks and candles at Aara, Jewellery Quarter",
+    "Biryani in a copper pot surrounded by lit diyas",
+    "Chai poured into a glass beside a basket of snacks",
+    "Pistachio-topped dessert in a pink bowl, with a Diwali booking prompt"
+   ],
+   "location": "Aara, 108-109 Icknield Street",
+   "capTags": 9
+  },
+  {
+   "id": "aara-2026-10-30",
+   "client": "aara",
+   "date": "2026-10-30",
+   "type": "static",
+   "title": "Lights on, doors open",
+   "caption": "Lights on, doors open ✨ Crafted Tikkas & Signature Biryanis, see you tonight.\n\n📍 108-109 Icknield Street, Birmingham B18 6RZ\n🌐 aaraindian.com/book\n\n#AaraIndianRestaurant #BirminghamFood #BirminghamRestaurants #IndianRestaurant #Biryani #Tikka #JewelleryQuarter",
+   "decisions": [
+    "Pick one: padded 4:5 (A) or native landscape 3:2 (B, QA's recommendation). Both are shown side by side below. A landscape post shows as a centre crop in the profile grid."
+   ],
+   "options": [
+    {
+     "key": "A",
+     "label": "A · Padded 4:5",
+     "slides": [
+      {
+       "src": "assets/img/aara/2026-10-30-static",
+       "file": "2026-10-30-static-R2.png",
+       "w": 1080,
+       "h": 1350
+      }
+     ]
+    },
+    {
+     "key": "B",
+     "label": "B · Native 3:2",
+     "slides": [
+      {
+       "src": "assets/img/aara/2026-10-30-static-landscape",
+       "file": "2026-10-30-static-landscape-R2.png",
+       "w": 1080,
+       "h": 720
+      }
+     ]
+    }
+   ],
+   "slides": [
+    {
+     "src": "assets/img/aara/2026-10-30-static",
+     "file": "2026-10-30-static-R2.png",
+     "w": 1080,
+     "h": 1350
+    }
+   ],
+   "tags": [
+    "#JewelleryQuarter",
+    "#BirminghamFood",
+    "#Biryani",
+    "#IndianRestaurant"
+   ],
+   "people": [
+    "jq_bid"
+   ],
+   "alt": [
+    "Aara's lit shopfront at night, signs reading Crafted Tikkas and Signature Biryanis"
+   ],
+   "location": "Aara, 108-109 Icknield Street",
+   "capTags": 7
+  }
+ ],
+ "sources": [
+  [
+   "Meta AI (meta.ai), 22 Oct 2026: answers to 3 questions on UK local-business profiles, per-client setups and grid/hashtag rules. Used as suggestions; every fact was rechecked against public sources.",
+   "https://www.meta.ai/"
+  ],
+  [
+   "Instagram @creators announcement, 18 Dec 2025: hashtags capped at five per post and Reel (as cited by Meta AI)",
+   "https://www.instagram.com/creators/"
+  ],
+  [
+   "Meta Business Help Center: food order partners and countries on Instagram",
+   "https://www.facebook.com/business/help/897533104016091"
+  ],
+  [
+   "Instagram Help Center: Use hashtags on Instagram (\"You can use up to 5 tags on a post\")",
+   "https://help.instagram.com/351460621611097"
+  ],
+  [
+   "About Instagram: Breaking down how Instagram Search works (name, bio keywords, location, caption keywords)",
+   "https://about.instagram.com/blog/announcements/break-down-how-instagram-search-works"
+  ],
+  [
+   "Meta Transparency Center: Instagram Search ranking (username/profile-name text match)",
+   "https://transparency.meta.com/features/explaining-ranking/ig-search/"
+  ],
+  [
+   "Instagram Help Center: Edit the alternative text for a post",
+   "https://help.instagram.com/503708446705527"
+  ],
+  [
+   "Instagram Help Center: Add an action button to your business account (partner-based, one button)",
+   "https://help.instagram.com/1419650861499317/"
+  ],
+  [
+   "Instagram Help Center: Edit your business information (category, contact options)",
+   "https://help.instagram.com/529483457260403/"
+  ],
+  [
+   "Instagram Help Center: Add a story to your Story Highlights",
+   "https://help.instagram.com/813938898787367/"
+  ],
+  [
+   "The Verge, 18 Dec 2025: Instagram caps hashtags at five per post (Mosseri)",
+   "https://www.theverge.com/news/847739/instagram-hashtag-spam-limit"
+  ]
+ ]
+};
+
+</script>
+<script>
+/* ELK planner preview: router + renderers. Plain JS, no build step. */
+(function () {
+  'use strict';
+  var D = window.PREVIEW;
+  var main = document.getElementById('main');
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var DATES = ['2026-10-24','2026-10-25','2026-10-26','2026-10-27','2026-10-28','2026-10-29','2026-10-30'];
+  var state = { aaraOpt: 'A', gridFull: false, lastClient: 'tw' };
+  var dock = document.getElementById('dock'), dockIn = dock.querySelector('.dock-in'), dockMode = '';
+  var byClient = {}; D.clients.forEach(function (c) { byClient[c.slug] = c; });
+
+  /* ---------- helpers ---------- */
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (m) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[m]; }); }
+  function dObj(iso) { var p = iso.split('-'); return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2])); }
+  function fmt(iso, o) { return dObj(iso).toLocaleDateString('en-GB', Object.assign({ timeZone: 'UTC' }, o)); }
+  function postsFor(slug) { return D.posts.filter(function (p) { return p.client === slug; }); }
+  function postsOn(d) { return D.posts.filter(function (p) { return p.date === d; }); }
+  function slidesOf(p) { if (p.options) { return p.options.filter(function (o) { return o.key === state.aaraOpt; })[0].slides; } return p.slides; }
+  function cover(p) { return slidesOf(p)[0]; }
+  function nDecisions(slug) { return postsFor(slug).reduce(function (a, p) { return a + p.decisions.length; }, 0); }
+  function q(view, extra) { var s = '?view=' + view; if (extra) s += '&' + extra; return s; }
+
+  function pic(s, alt, opts) {
+    opts = opts || {};
+    var sizes = opts.sizes || '(min-width: 700px) 470px, calc(100vw - 40px)';
+    var ss = s.src + '-540.webp 540w, ' + s.src + '-720.webp 720w, ' + s.src + '-1080.webp 1080w';
+    var pre = opts.defer ? 'data-' : '';  /* deferred slides get real URLs after load or on first swipe */
+    return '<picture><source type="image/webp" ' + pre + 'srcset="' + ss + '" sizes="' + sizes + '">' +
+      '<img ' + pre + 'src="' + s.src + '-1080.jpg" width="' + s.w + '" height="' + s.h + '" alt="' + esc(alt) + '"' +
+      (opts.eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async"></picture>';
+  }
+  function ring(c) {
+    var off = (113.1 * (1 - c.score / 100)).toFixed(1);
+    return '<div class="ring" style="--accent:' + c.accent + ';--off:' + off + '" role="img" aria-label="QA score ' + c.score + ' out of 100">' +
+      '<svg viewBox="0 0 46 46" aria-hidden="true"><circle class="bg" cx="23" cy="23" r="18"/><circle class="fg" cx="23" cy="23" r="18"/></svg><b aria-hidden="true">' + c.score + '</b></div>';
+  }
+  function logo(c, px) { return '<img src="' + c.logo + '-' + (px > 48 ? 192 : 96) + '.webp" srcset="' + c.logo + '-96.webp 96w, ' + c.logo + '-192.webp 192w" sizes="' + px + 'px" width="' + px + '" height="' + px + '" alt="" decoding="async">'; }
+  function av(c, extra, px) { return '<span class="av ' + (extra || '') + '" aria-hidden="true">' + logo(c, px || 32) + '</span>'; }
+  function len(t) { return Array.from(t).length; }
+  function tagsLine(p) { return p.tags.join(' '); }
+  function fixedCaption(p) {  /* captions-R2.md carries 6-10 hashtags; Instagram caps posts at 5, so the preview shows the 3-5 tag set */
+    var body = p.caption.split('\n').filter(function (l) { return !/^\s*(#[\p{L}\p{N}_]+\s*)+$/u.test(l); }).join('\n').replace(/\s+$/, '');
+    return body + '\n\n' + tagsLine(p);
+  }
+  function altFor(p, i, c) { return (p.alt && p.alt[i]) || (c.name + ', ' + p.title); }
+
+  var ICON = {
+    heart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.2 4.5c2 0 3.5 1.1 4.8 2.8 1.3-1.7 2.8-2.8 4.8-2.8 3.6 0 5.7 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>',
+    comment: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-3.2-6.6A8.4 8.4 0 0 1 20.5 12zM20.5 20.5l-2.3-3.4"/></svg>',
+    share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M22 3 9.2 10.1M22 3l-7 18-5.8-10.9L2 6.5z"/></svg>',
+    save: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-6.2L5 21V3h14z"/></svg>',
+    dots: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>',
+    multi: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM3 7v13a2 2 0 0 0 2 2h13" stroke="currentColor" stroke-width="1.6" fill-opacity=".95"/></svg>',
+    grid: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>',
+    reel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 8h18M8 3l3 5M14 3l3 5M10 11.5v6l5-3z"/></svg>',
+    tagged: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M6.5 21c1-3 3-4.5 5.5-4.5s4.5 1.5 5.5 4.5"/></svg>',
+    left: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>',
+    right: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'
+  };
+
+  function captionHTML(t) {
+    return esc(t).replace(/(^|\s)(#[\p{L}\p{N}_]+)/gu, '$1<span class="tag">$2</span>').replace(/\n/g, '<br>');
+  }
+
+  /* ---------- pieces ---------- */
+  function feedPost(p, opts) {
+    opts = opts || {};
+    var c = byClient[p.client], sl = slidesOf(p), n = sl.length, uid = 'cap-' + p.id;
+    var ar = sl[0].w + '/' + sl[0].h;
+    var h = '<article class="ig-post" aria-label="' + esc(c.name + ', ' + fmt(p.date, { day: 'numeric', month: 'long' }) + ': ' + p.title) + '">';
+    h += '<div class="ig-head">' + av(c, 'ring-ig') + '<div><div class="nm">' + esc(c.profile.handle || c.name) + '</div><div class="sub">' + esc(p.location.split(' (')[0].split(',')[0]) + '</div></div><span class="more">' + ICON.dots + '</span></div>';
+    if (p.options) {
+      h += '<div class="opt" role="group" aria-label="30 Oct version">' + p.options.map(function (o) {
+        return '<button type="button" data-opt="' + o.key + '" aria-pressed="' + (o.key === state.aaraOpt) + '">' + esc(o.label) + '</button>';
+      }).join('') + '</div>';
+    }
+    h += '<div class="media"' + (n > 1 ? ' data-carousel' : '') + '>';
+    h += '<div class="track"' + (n > 1 ? ' tabindex="0" role="region" aria-roledescription="carousel" aria-label="' + esc(p.title) + ', ' + n + ' slides. Use arrow keys or swipe."' : '') + '>';
+    sl.forEach(function (s, i) {
+      h += '<figure class="slide" style="--ar:' + s.w + '/' + s.h + '"' + (n > 1 ? ' role="group" aria-label="Slide ' + (i + 1) + ' of ' + n + '"' : '') + '>' +
+        pic(s, altFor(p, i, c), { eager: opts.eager && i === 0, defer: i > 0 }) + '</figure>';
+    });
+    h += '</div>';
+    if (n > 1) {
+      h += '<span class="count" aria-live="polite"><span data-cur>1</span>/' + n + '</span>';
+      h += '<button class="arrow prev" type="button" aria-label="Previous slide" disabled>' + ICON.left + '</button>';
+      h += '<button class="arrow next" type="button" aria-label="Next slide">' + ICON.right + '</button>';
+    }
+    h += '</div>';
+    h += '<div class="ig-actions" aria-hidden="true">' + ICON.heart + ICON.comment + ICON.share;
+    if (n > 1) { h += '<span class="dots">'; for (var i = 0; i < n; i++) h += '<i' + (i === 0 ? ' class="on"' : '') + '></i>'; h += '</span>'; }
+    h += '<span class="save">' + ICON.save + '</span></div>';
+    h += '<div class="ig-cap" id="' + uid + '"><div class="txt"><b>' + esc(c.profile.handle || c.name) + '</b>' + captionHTML(fixedCaption(p)) + '</div>' +
+      '<button class="morebtn" type="button" aria-expanded="false" aria-controls="' + uid + '">more</button></div>';
+    h += '<div class="ig-date">' + fmt(p.date, { day: 'numeric', month: 'long' }) + ' · Draft, not posted</div>';
+    h += '</article>';
+    return h;
+  }
+
+  function notes(p) {
+    var h = '<aside class="notes card" aria-label="Notes for this post">';
+    if (p.decisions.length) {
+      h += '<h3 class="h3">Open decisions · ' + p.decisions.length + '</h3><ul class="bul">' + p.decisions.map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('') + '</ul>';
+    } else {
+      h += '<h3 class="h3 ok">No open decisions</h3>';
+    }
+    if (p.options) {
+      h += '<div class="compare">' + p.options.map(function (o) {
+        var s = o.slides[0];
+        return '<figure><div class="fr">' + pic(s, 'Aara 30 Oct, option ' + o.label, { sizes: '220px' }) + '</div><figcaption>' + esc(o.label) + ' · ' + s.w + '×' + s.h + '</figcaption></figure>';
+      }).join('') + '</div>';
+    }
+    var files = (p.options ? p.options.map(function (o) { return o.slides[0]; }) : p.slides).map(function (s) { return s.file; });
+    h += tagDetails(p);
+    h += '<div class="files">' + esc(files.length > 3 ? files[0] + ' … ' + files[files.length - 1] + ' (' + files.length + ')' : files.join(', ')) + '</div>';
+    return h + '</aside>';
+  }
+
+  function tagDetails(p) {
+    var c = byClient[p.client], sl = slidesOf(p);
+    var h = '<details class="more"><summary>Hashtags, tags &amp; alt text</summary><dl class="kv">';
+    h += '<div><dt>Hashtags · ' + p.tags.length + ' of 5 max</dt><dd><div class="pills">' + p.tags.map(function (t) { return '<span class="pill">' + esc(t) + '</span>'; }).join('') + '</div>' +
+      (p.capTags > 5 ? '<p class="meta bad">captions-R2.md has ' + p.capTags + ' hashtags, over Instagram\'s 5-tag cap. The preview caption uses this set instead.</p>' : '') + '</dd></div>';
+    h += '<div><dt>Location tag</dt><dd>' + esc(p.location) + '</dd></div>';
+    h += '<div><dt>Collab / people tags</dt><dd>' + (p.people.length ? p.people.map(function (u) { return '@' + esc(u); }).join(', ') + ' <span class="muted">(verified; tag in the image, or invite as a Collab only if they agree)</span>' : '<span class="muted">None suggested</span>') + '</dd></div>';
+    h += '<div><dt>Alt text · ' + sl.length + (sl.length > 1 ? ' slides' : ' image') + ' (aim for ~100 characters)</dt><dd><ol class="alts">' + sl.map(function (s, i) { var a = altFor(p, i, c); return '<li>' + esc(a) + ' <small>' + len(a) + '</small></li>'; }).join('') + '</ol></dd></div>';
+    return h + '</dl></details>';
+  }
+
+  function postRow(p, showClient, eager, i) {
+    var c = byClient[p.client];
+    var h = '<section class="post-row" id="post-' + p.id + '">';
+    h += '<div class="post-meta"><h2 class="pm-h">' + (showClient ? '<a href="' + q('client', 'c=' + c.slug) + '" data-link>' + av(c) + esc(c.name) + '</a>' : fmt(p.date, { weekday: 'short', day: 'numeric', month: 'short' })) + '</h2>';
+    h += '<span class="what">' + esc(p.type + (slidesOf(p).length > 1 ? ' · ' + slidesOf(p).length + ' slides' : '')) + ' · ' + esc(p.title) + '</span></div>';
+    h += feedPost(p, { eager: eager }) + notes(p) + '</section>';
+    return h;
+  }
+
+  function profile(c) {
+    var P = c.profile, ps = postsFor(c.slug).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    var btns = (P.action ? [P.action[0].split(' or ')[0]] : []).concat(P.contacts.filter(function (x) { return !/^Not shown/.test(x[1]); }).map(function (x) { return x[0]; })).slice(0, 3);
+    var l1 = P.links[0];
+    var h = '<div class="phone" role="group" aria-label="Instagram profile preview for ' + esc(c.name) + ' with the suggested set-up">';
+    h += '<div class="ig-status" aria-hidden="true"><span>9:41</span><span class="island"></span><span>5G</span></div>';
+    h += '<div class="ig-bar">' + (P.handle ? '<span class="h">' + esc(P.handle) + '</span>' : '<span class="h nohandle">Handle not verified</span>') + ICON.dots + '</div>';
+    h += '<div class="ig-prof"><div class="bigav">' + logo(c, 74) + '</div>' +
+      '<div class="ig-nums"><div><b>+' + ps.length + '</b>new posts</div><div><b>' + c.score + '</b>QA score</div><div><b>' + nDecisions(c.slug) + '</b>decisions</div></div></div>';
+    h += '<div class="ig-bio"><b>' + esc(P.nameField) + '</b><span class="cat">' + esc(P.category.split(' (')[0]) + '</span>' + esc(P.bio) +
+      (l1 ? '<span class="lnk">🔗 ' + esc(l1[0]) + (P.links.length > 1 ? ' and ' + (P.links.length - 1) + ' more' : '') + '</span>' : '') + '</div>';
+    if (btns.length) h += '<div class="ig-cta" aria-label="Suggested buttons">' + btns.map(function (b) { return '<span>' + esc(b) + '</span>'; }).join('') + '</div>';
+    h += '<div class="ig-hl" aria-label="Suggested story highlights">' + P.highlights.map(function (x) { return '<div><i></i>' + esc(x) + '</div>'; }).join('') + '</div>';
+    h += '<div class="ig-btns"><button type="button" data-crop="34" aria-pressed="' + !state.gridFull + '">Grid crop 3:4</button><button type="button" data-crop="45" aria-pressed="' + state.gridFull + '">Full post 4:5</button></div>';
+    h += '<div class="ig-tabs" aria-hidden="true"><span>' + ICON.grid + '</span><span>' + ICON.reel + '</span><span>' + ICON.tagged + '</span></div>';
+    h += '<div class="grid' + (state.gridFull ? ' full' : '') + '">';
+    ps.forEach(function (p) {
+      var s = cover(p);
+      h += '<button class="tile" type="button" data-goto="post-' + p.id + '" aria-label="Go to ' + esc(fmt(p.date, { day: 'numeric', month: 'short' }) + ' post: ' + p.title) + '">' +
+        pic(s, '', { sizes: '(min-width: 1080px) 120px, 33vw' }) + (slidesOf(p).length > 1 ? '<span class="ic">' + ICON.multi + '</span>' : '') +
+        '<span class="dt">' + fmt(p.date, { day: 'numeric', month: 'short' }) + '</span></button>';
+    });
+    for (var k = ps.length; k < 3; k++) h += '<div class="tile ph" aria-hidden="true"></div>';
+    h += '</div><p class="grid-note">Newest first, as Instagram orders the grid. Since 2025 Instagram crops grid tiles to 3:4, so a 4:5 post loses about 6% from each side. Switch to "Full post" to compare.</p></div>';
+    h += '<p class="mock-note">The name, bio, buttons and highlights are suggestions (see Profile &amp; tags). Nothing has been changed on Instagram.</p>';
+    return h;
+  }
+
+  function profilePanel(c) {
+    var P = c.profile, ps = postsFor(c.slug);
+    function card(title, body, cls) { return '<section class="card' + (cls ? ' ' + cls : '') + '"><h2 class="h3">' + title + '</h2>' + body + '</section>'; }
+    function rows(list) { return '<ul class="rows">' + list.join('') + '</ul>'; }
+    var h = '<div class="pgrid">';
+    h += card('Name field · ' + len(P.nameField) + '/30', '<p class="pval big">' + esc(P.nameField) + '</p><p class="meta">Format "Brand | Service + Town". Instagram search weights this field most, and it is separate from the @handle.</p>');
+    h += card('Handle', P.handle ? '<p class="pval big">@' + esc(P.handle) + '</p><p class="meta ok">Verified: ' + esc(P.handleProof) + '</p>' : '<p class="pval">Not shown</p><p class="meta bad">' + esc(P.handleNote) + '</p>');
+    h += card('Business category', '<p class="pval">' + esc(P.category) + '</p><p class="meta">Pick the most specific match in Edit profile → Category, and keep it visible.</p>');
+    h += card('Bio · ' + len(P.bio) + '/150', '<p class="pval">' + esc(P.bio) + '</p><p class="meta">Three lines: who you serve, what you do, what to do next. The bio is searchable.</p>', 'span2');
+    var b = [];
+    b.push('<li><b>Action button</b><span>' + (P.action ? esc(P.action[0]) + ': ' + esc(P.action[1]) : esc(P.actionNote)) + '</span></li>');
+    P.contacts.forEach(function (x) { b.push('<li><b>' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></li>'); });
+    h += card('Buttons · one action button + contact', rows(b) + '<p class="meta">Contact details are only those published on the business\'s own site. Nothing new has been added.</p>');
+    h += card('Link in bio · ' + P.links.length + ' of 5', rows(P.links.map(function (x, i) { return '<li><b>' + (i + 1) + '. ' + esc(x[0]) + '</b><a href="' + esc(x[1]) + '" rel="noopener" target="_blank">' + esc(x[1].replace(/^https?:\/\/(www\.)?/, '').slice(0, 44)) + (x[1].replace(/^https?:\/\/(www\.)?/, '').length > 44 ? '…' : '') + '</a></li>'; })) + '<p class="meta">Link 1 is the main conversion, and it\'s the only one shown in full on the profile.</p>');
+    h += card('Story highlights · ' + P.highlights.length, '<div class="pills">' + P.highlights.map(function (x) { return '<span class="pill plain">' + esc(x) + '</span>'; }).join('') + '</div><p class="meta">Aim for 5–10 clearly named collections, and save link stickers into them.</p>');
+    h += card('Location tag (every post)', '<p class="pval">' + esc(P.location) + '</p>');
+    h += card('Collab accounts (verified only)', P.collabs.length ? rows(P.collabs.map(function (x) { return '<li><b>@' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></li>'; })) : '<p class="pval muted">' + esc(P.collabNote) + '</p>');
+    var t = ps.map(function (p) {
+      return '<li><b><a href="' + q('client', 'c=' + c.slug) + '#post-' + p.id + '" data-link>' + esc(fmt(p.date, { day: 'numeric', month: 'short' })) + ' · ' + esc(p.title) + '</a></b><span>' + p.tags.length + ' tags' + (p.capTags > 5 ? ' <span class="warn">(caption has ' + p.capTags + ')</span>' : '') + ' · ' + p.alt.length + ' alt</span></li>';
+    });
+    h += card('Hashtags &amp; alt text per post', rows(t) + '<p class="meta bad">Every captions-R2.md caption has 6–10 hashtags. Instagram now allows 5, so swap in the 3–5 tag sets (open "Hashtags, tags &amp; alt text" on each post).</p>', 'span2');
+    h += card('Meta AI: used vs. rejected', '<ul class="bul g">' + P.metaAi.took.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul><h3 class="h3" style="margin-top:16px">Not used (unverified or made up)</h3><ul class="bul x">' + P.metaAi.rejected.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul><p class="meta">Meta AI (meta.ai), 22 Oct 2026. Treated as suggestions; every address and claim was rechecked.</p>', 'span2');
+    h += card('To confirm with the client', '<ul class="bul">' + P.flags.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>');
+    h += card('Verified public facts', '<ul class="bul g">' + P.facts.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>');
+    h += card('Sources', '<ol class="src">' + D.sources.map(function (x) { return '<li>' + esc(x[0]) + ' · <a href="' + esc(x[1]) + '" rel="noopener" target="_blank">' + esc(x[1].replace(/^https?:\/\//, '').replace(/\/$/, '')) + '</a></li>'; }).join('') + '</ol>', 'span2');
+    return h + '</div>';
+  }
+
+  /* ---------- views ---------- */
+  function overview() {
+    var frames = D.posts.reduce(function (a, p) { return a + slidesOf(p).length; }, 0);
+    var dec = D.posts.reduce(function (a, p) { return a + p.decisions.length; }, 0);
+    var h = '<div class="view">';
+    h += '<section class="hero"><div class="badges"><span class="badge"><span class="dot"></span>Draft · not posted</span><span class="badge ok"><span class="dot"></span>QA round 2 passed · ≥85</span></div>';
+    h += '<p class="eyebrow">ELK · Instagram planner</p><h1 class="display">Week of <em>24–30</em> October</h1>';
+    h += '<p class="lede">Every post as it will look on Instagram: the profile grid crop, the swipeable feed post and the full caption. Open decisions are flagged on each post.</p>';
+    h += '<div class="stats"><div class="stat"><b>4</b><span>Clients</span></div><div class="stat"><b>' + D.posts.length + '</b><span>Posts</span></div><div class="stat"><b>' + frames + '</b><span>Frames</span></div><div class="stat"><b>' + dec + '</b><span>Decisions</span></div></div></section>';
+    h += '<section class="section" aria-labelledby="h-clients"><div class="section-head"><h2 class="h2" id="h-clients">By <em>client</em></h2><p>Tap a client to open the grid, feed and profile suggestions</p></div><div class="cards">';
+    D.clients.forEach(function (c, i) {
+      var ps = postsFor(c.slug).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+      var nd = nDecisions(c.slug);
+      h += '<a class="card" href="' + q('client', 'c=' + c.slug) + '" data-link><div class="card-top">' + av(c, 'lg', 56) +
+        '<div><h3 class="card-name">' + esc(c.name) + '</h3><p class="card-tag">' + esc(c.tagline) + '</p></div>' + ring(c) + '</div><div class="mini">';
+      for (var k = 0; k < 3; k++) { h += '<div class="t">' + (ps[k] ? pic(cover(ps[k]), '', { sizes: '(min-width:1080px) 90px, 30vw' }) : '') + '</div>'; }
+      h += '</div><div class="card-foot"><span>' + ps.length + ' posts · <span class="flag">' + nd + ' open decision' + (nd === 1 ? '' : 's') + '</span></span><span class="go">Open →</span></div></a>';
+    });
+    h += '</div></section>';
+    h += '<section class="section" aria-labelledby="h-week"><div class="section-head"><h2 class="h2" id="h-week">By <em>date</em></h2><p>All clients, day by day</p></div><div class="week">';
+    DATES.forEach(function (d, i) {
+      var ps = postsOn(d);
+      h += '<a class="card day' + (ps.length ? '' : ' empty') + '" href="' + q('date', 'd=' + d) + '" data-link aria-label="' + esc(fmt(d, { weekday: 'long', day: 'numeric', month: 'long' }) + ', ' + ps.length + ' posts') + '">' +
+        '<span class="day-w">' + fmt(d, { weekday: 'short' }) + '</span><span class="day-n">' + fmt(d, { day: 'numeric' }) + '</span>';
+      if (ps.length) { h += '<span class="day-posts">' + ps.map(function (p) { return '<span class="t">' + pic(cover(p), '', { sizes: '60px' }) + '</span>'; }).join('') + '</span>'; }
+      else h += '<span class="none">No posts</span>';
+      h += '</a>';
+    });
+    h += '</div></section></div>';
+    return h;
+  }
+
+  function setDock(mode, cur) {
+    var items = mode === 'date' ? DATES : D.clients.map(function (c) { return c.slug; });
+    if (mode !== dockMode) {
+      dockMode = mode;
+      dock.setAttribute('aria-label', mode === 'date' ? 'Dates' : 'Clients');
+      dockIn.style.setProperty('--n', items.length);
+      dockIn.innerHTML = '<span class="dock-ind" aria-hidden="true"></span>' + items.map(function (k) {
+        if (mode === 'date') { var n = postsOn(k).length;
+          return '<a class="' + (n ? '' : 'empty') + '" href="' + q('date', 'd=' + k) + '" data-link data-key="' + k + '" aria-label="' + esc(fmt(k, { weekday: 'long', day: 'numeric', month: 'long' }) + ', ' + n + ' post' + (n === 1 ? '' : 's')) + '"><span>' + fmt(k, { weekday: 'short' }) + '</span><b>' + fmt(k, { day: 'numeric' }) + '</b></a>'; }
+        var c = byClient[k];
+        return '<a href="' + q('client', 'c=' + k) + '" data-link data-key="' + k + '" aria-label="' + esc(c.name) + '">' + av(c, '', 24) + '<span>' + esc(c.dock) + '</span></a>';
+      }).join('');
+    }
+    var i = items.indexOf(cur);
+    dock.classList.toggle('no-ind', i < 0);
+    if (i >= 0) dockIn.style.setProperty('--i', i);
+    dockIn.querySelectorAll('a').forEach(function (a) { a.setAttribute('aria-current', String(a.dataset.key === cur)); });
+  }
+
+  function clientView(slug, tab) {
+    var c = byClient[slug]; state.lastClient = slug;
+    var ps = postsFor(slug);
+    var h = '<div class="view">';
+    h += '<header class="page-head">' + av(c, 'lg', 56) + '<div><p class="eyebrow">Client · ' + ps.length + ' posts · 24–30 Oct</p><h1 class="h1">' + esc(c.name) + '</h1><p class="sub">' + esc(c.tagline) + '</p></div>' + ring(c) + '</header>';
+    h += '<nav class="tabs" aria-label="Client sections"><a href="' + q('client', 'c=' + slug) + '" data-link' + (tab !== 'profile' ? ' aria-current="page"' : '') + '>Posts</a><a href="' + q('client', 'c=' + slug + '&tab=profile') + '" data-link' + (tab === 'profile' ? ' aria-current="page"' : '') + '>Profile &amp; tags</a></nav>';
+    if (tab === 'profile') { h += profilePanel(c); return h + '</div>'; }
+    h += '<div class="client-layout"><div class="profile-col">' + profile(c) + '</div><div class="feed">';
+    ps.forEach(function (p, i) { h += postRow(p, false, false, i + 1); });
+    h += '</div></div></div>';
+    return h;
+  }
+
+  function dateView(d) {
+    var ps = postsOn(d);
+    var h = '<div class="view"><header class="page-head"><div><p class="eyebrow">' + ps.length + ' post' + (ps.length === 1 ? '' : 's') + ' · all clients</p><h1 class="h1">' + fmt(d, { weekday: 'long' }) + ' <em>' + fmt(d, { day: 'numeric', month: 'long' }) + '</em></h1></div></header>';
+    if (!ps.length) {
+      h += '<div class="empty-day"><p class="h2">Nothing scheduled</p><p>No planner posts for this day.</p></div>';
+    } else {
+      h += '<div class="feed">'; ps.forEach(function (p, i) { h += postRow(p, true, i === 0, i); }); h += '</div>';
+    }
+    return h + '</div>';
+  }
+
+  /* ---------- router ---------- */
+  function parse() {
+    var sp = new URLSearchParams(location.search), v = sp.get('view');
+    var tab = sp.get('tab') === 'profile' ? 'profile' : 'posts';
+    if (v === 'client' && byClient[sp.get('c')]) return { view: 'client', c: sp.get('c'), tab: tab };
+    if (v === 'client') return { view: 'client', c: state.lastClient, tab: tab };
+    if (v === 'date' && DATES.indexOf(sp.get('d')) > -1) return { view: 'date', d: sp.get('d') };
+    if (v === 'date') return { view: 'date', d: DATES[0] };
+    return { view: 'overview' };
+  }
+  function render(focus) {
+    var r = parse(), title;
+    if (r.view === 'client') { main.innerHTML = clientView(r.c, r.tab); title = byClient[r.c].name + (r.tab === 'profile' ? ' · Profile & tags' : ''); }
+    else if (r.view === 'date') { main.innerHTML = dateView(r.d); title = fmt(r.d, { day: 'numeric', month: 'short' }); }
+    else { main.innerHTML = overview(); title = 'Overview'; }
+    document.title = title + ' · ELK planner preview · 24–30 Oct 2026';
+    document.querySelectorAll('[data-nav]').forEach(function (a) {
+      if (a.dataset.nav === r.view) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+      if (a.dataset.nav === 'client') a.href = q('client', 'c=' + state.lastClient);
+    });
+    setDock(r.view === 'date' ? 'date' : 'client', r.view === 'date' ? r.d : (r.view === 'client' ? r.c : ''));
+    initCarousels(main); initCaptions(main);
+    if (loaded) hydrateLater();
+    var tgt = location.hash && document.getElementById(location.hash.slice(1));
+    if (tgt) { tgt.scrollIntoView({ block: 'start' }); }
+    else if (focus) { window.scrollTo(0, 0); }
+    if (focus) main.focus({ preventScroll: true });
+  }
+  function go(href) { document.body.classList.remove('boot'); history.pushState(null, '', href); render(true); }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-link]');
+    if (a && !e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) { e.preventDefault(); if (a.getAttribute('href') !== location.search + location.hash) go(a.getAttribute('href')); else window.scrollTo(0, 0); return; }
+    var t = e.target.closest('[data-goto]');
+    if (t) { var el = document.getElementById(t.dataset.goto); if (el) el.scrollIntoView({ behavior: RM.matches ? 'auto' : 'smooth', block: 'start' }); return; }
+    var cr = e.target.closest('[data-crop]');
+    if (cr) { state.gridFull = cr.dataset.crop === '45'; var g = main.querySelector('.grid'); g.classList.toggle('full', state.gridFull);
+      main.querySelectorAll('[data-crop]').forEach(function (b) { b.setAttribute('aria-pressed', String((b.dataset.crop === '45') === state.gridFull)); }); return; }
+    var o = e.target.closest('[data-opt]');
+    if (o && o.dataset.opt !== state.aaraOpt) { var y = window.scrollY; state.aaraOpt = o.dataset.opt; render(false); window.scrollTo(0, y);
+      var nb = main.querySelector('[data-opt="' + state.aaraOpt + '"]'); if (nb) nb.focus({ preventScroll: true }); }
+  });
+  window.addEventListener('popstate', function () { document.body.classList.remove('boot'); render(true); });
+
+  /* ---------- captions ---------- */
+  function initCaptions(root) {
+    root.querySelectorAll('.ig-cap').forEach(function (cap) {
+      var txt = cap.querySelector('.txt'), btn = cap.querySelector('.morebtn');
+      if (txt.scrollHeight <= txt.clientHeight + 2) { btn.hidden = true; return; }
+      btn.addEventListener('click', function () {
+        var open = cap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open)); btn.textContent = open ? 'less' : 'more';
+      });
+    });
+  }
+
+  /* ---------- deferred carousel slides ---------- */
+  function hydrate(scope) {
+    scope.querySelectorAll('[data-srcset]').forEach(function (el) { el.setAttribute('srcset', el.getAttribute('data-srcset')); el.removeAttribute('data-srcset'); });
+    scope.querySelectorAll('img[data-src]').forEach(function (el) { el.setAttribute('src', el.getAttribute('data-src')); el.removeAttribute('data-src'); });
+  }
+  var loaded = document.readyState === 'complete';
+  function hydrateLater() {
+    var run = function () { hydrate(main); };
+    if (window.requestIdleCallback) requestIdleCallback(run, { timeout: 2500 }); else setTimeout(run, 600);
+  }
+  window.addEventListener('load', function () { loaded = true; hydrateLater(); });
+
+  /* ---------- carousels (scroll-snap + arrows + keys) ---------- */
+  function initCarousels(root) {
+    root.querySelectorAll('[data-carousel]').forEach(function (m) {
+      var track = m.querySelector('.track'), n = track.children.length;
+      var dots = m.parentNode.querySelectorAll('.dots i'), cur = m.querySelector('[data-cur]');
+      var prev = m.querySelector('.prev'), next = m.querySelector('.next'), idx = 0, raf = 0;
+      function update() {
+        raf = 0;
+        var i = Math.round(track.scrollLeft / track.clientWidth); i = Math.max(0, Math.min(n - 1, i));
+        if (i === idx && cur.textContent === String(i + 1)) return;
+        idx = i; cur.textContent = i + 1;
+        dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+        prev.disabled = i === 0; next.disabled = i === n - 1;
+      }
+      function to(i) { i = Math.max(0, Math.min(n - 1, i)); track.scrollTo({ left: i * track.clientWidth, behavior: RM.matches ? 'auto' : 'smooth' }); }
+      track.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+      ['pointerdown', 'touchstart', 'focusin'].forEach(function (ev) { m.addEventListener(ev, function () { hydrate(m); }, { once: true, passive: true }); });
+      prev.addEventListener('click', function () { to(idx - 1); });
+      next.addEventListener('click', function () { to(idx + 1); });
+      track.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); to(idx + 1); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); to(idx - 1); }
+      });
+    });
+  }
+
+  document.body.classList.add('boot');
+  render(false);
+})();
+
+</script>
+</body>
+</html>
